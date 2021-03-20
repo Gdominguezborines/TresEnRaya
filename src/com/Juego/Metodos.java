@@ -29,7 +29,7 @@ public class Metodos {
 
             do{
                 //muestra a que jugador le toca  J1,J2
-                mostrarTurnoActual(turno);
+                libreria.mostrarTurnoActual(turno);
 
                 //muestra el tablero
                 libreria.mostrarMatriz(tablero);
@@ -73,14 +73,6 @@ public class Metodos {
 
         }
 
-
-        public static void mostrarTurnoActual (boolean turno){
-            if(turno){
-                System.out.println("Le toca al jugador 1");
-            }else {
-                System.out.println("Le toca al jugador 1");
-            }
-        }
 
 
         public static boolean matrizLlena(char[][] matriz, char simboloDef) {
