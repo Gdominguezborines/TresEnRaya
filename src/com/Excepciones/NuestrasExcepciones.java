@@ -5,9 +5,9 @@ package com.Excepciones;
 public class NuestrasExcepciones extends Exception {
 
 
+
     public NuestrasExcepciones(String mensaje){
-        //con super inicializo los atributos de la clase padre
-        super(mensaje);
+            super(mensaje);
     }
 
 }
