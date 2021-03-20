@@ -209,7 +209,7 @@ public class Metodos {
 
         if (simbolo != vacio) {
 
-            libreria.ganador(simbolo, J1, J2, 3);
+             libreria.ganador(simbolo, J1, J2, 3);
 
             return;
         }
@@ -227,6 +227,7 @@ public class Metodos {
         }
 
         return false;
+
     }
 }
 
