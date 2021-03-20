@@ -36,7 +36,7 @@ public class Metodos {
 
                 correcto = false;
                 fila = libreria.pedirInteger("Escribe el numero de la fila");
-                columna = libreria.pedirInteger("Escribe el numero de la columna");
+                 columna = libreria.pedirInteger("Escribe el numero de la columna");
                 fila = fila - 1;
                 columna = columna - 1;
                 //validamos la posicion
