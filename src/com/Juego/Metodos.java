@@ -86,7 +86,6 @@ public class Metodos {
         }
 
 
-
         public static boolean finPartida(char[][] matriz, char simboloDef) {
 
             if (matrizLlena(matriz, simboloDef)
