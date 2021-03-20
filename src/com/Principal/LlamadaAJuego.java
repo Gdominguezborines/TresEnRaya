@@ -1,6 +1,7 @@
 package com.Principal;
 
 import com.Excepciones.NuestrasExcepciones;
+import com.Ganadores.FicheroGanadores;
 import com.Juego.Metodos;
 import java.util.Scanner;
 
@@ -9,10 +10,17 @@ public class  LlamadaAJuego{
     static Scanner teclado=new Scanner(System.in);
 
     public static void main(String[] args){
-        Metodos juguemos=new Metodos();
- boolean correcto=false;
 
- do {
+
+        FicheroGanadores obx = new FicheroGanadores();
+        obx.crearArchivoGanadores();
+        obx.escribirArchivoGanadores();
+        obx.leerArchivoGanadores();
+
+        Metodos juguemos=new Metodos();
+        boolean correcto=false;
+
+        do {
      try {
          juguemos.jugar();
          correcto = true;
