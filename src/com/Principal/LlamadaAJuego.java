@@ -6,7 +6,7 @@ public class  LlamadaAJuego{
 
     public static void main(String[]args){
 
-        Metodos juguemos = new Metodos();
-             juguemos.jugar();
+ //      Metodos juguemos = new Metodos();
+   //          juguemos.jugar();
 
     }
