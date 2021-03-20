@@ -72,7 +72,32 @@ public class Metodos {
 
         }
 
+        public static boolean matrizLlena(char[][] matriz, char simboloDef) {
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz[0].length; j++) {
+                    if (matriz[i][j] == simboloDef) {
+                        return false;
+                    }
+                }
+            }
 
+            return true;
+
+        }
+
+
+
+        public static boolean finPartida(char[][] matriz, char simboloDef) {
+
+            if (matrizLlena(matriz, simboloDef)
+                    || coincidenciaLinea(matriz, simboloDef) != simboloDef
+                    || coincidenciaColumna(matriz, simboloDef) != simboloDef
+                    || coincidenciaDiagonal(matriz, simboloDef) != simboloDef) {
+                return true;
+            }
+
+            return false;
+        }
 
 
     }

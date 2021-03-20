@@ -1,5 +1,12 @@
 package com.Principal;
 
-public class LlamadaAJuego {
+import com.Juego.Metodos;
 
-}
+public class  LlamadaAJuego{
+
+    public static void main(String[]args){
+
+        Metodos juguemos = new Metodos();
+             juguemos.jugar();
+
+    }
