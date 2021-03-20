@@ -1,5 +1,6 @@
 package com.Juego;
 
+import Librerias.libreria;
 import com.Excepciones.NuestrasExcepciones;
 
 public class Metodos {
@@ -24,26 +25,26 @@ public class Metodos {
         int fila,columna;
         boolean posValida,correcto;
 
-        while(!finPartida(tablero,vacio)){
+        while(!libreria.finPartida(tablero,vacio)){
 
             do{
                 //muestra a que jugador le toca  J1,J2
                 mostrarTurnoActual(turno);
 
                 //muestra el tablero
-                mostrarMatriz(tablero);
+                libreria.mostrarMatriz(tablero);
 
                 correcto=false;
-                fila= pedirInteger("Escribe el numero de la fila");
-                columna=pedirInteger("Escribe el numero de la columna");
+                fila= libreria.pedirInteger("Escribe el numero de la fila");
+                columna=libreria.pedirInteger("Escribe el numero de la columna");
                 fila=fila-1;
                 columna=columna-1;
                 //validamos la posicion
-                posValida=validarPodicion(tablero,fila,columna);
+                posValida=libreria.validarPosicion(tablero,fila,columna);
 
                 if(posValida){
 
-                    if(!hayValorPosicion(tablero,fila,columna,vacio)){
+                    if(!libreria.hayValorPosicion(tablero,fila,columna,vacio)){
                         correcto=true;
                     }else {
                         throw new NuestrasExcepciones("Esta posicion ya esta ocupada");
@@ -57,20 +58,30 @@ public class Metodos {
             }while (!correcto);
 
             if(turno){
-                insertaEn(tablero,fila,columna,J1);
+                libreria.insertarEn(tablero,fila,columna,J1);
             }else {
-                insertaEn(tablero,fila,columna,J2);
+                libreria.insertarEn(tablero,fila,columna,J2);
             }
             //Con esto cambiamos el tuno entre jugador 1 y 2
             turno=!turno;
 
             //Mostrar tablero
-            mostrarMatriz(tablero);
+            libreria.mostrarMatriz(tablero);
 
             //Mostramos el ganador
             mostrarGanador(tablero,J1,J2,vacio);
 
         }
+
+
+        public static void mostrarTurnoActual (boolean turno){
+            if(turno){
+                System.out.println("Le toca al jugador 1");
+            }else {
+                System.out.println("Le toca al jugador 1");
+            }
+        }
+
 
         public static boolean matrizLlena(char[][] matriz, char simboloDef) {
             for (int i = 0; i < matriz.length; i++) {
