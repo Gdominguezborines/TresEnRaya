@@ -1,0 +1,3 @@
+[submodule "Libreria_juego"]
+	path = Libreria_juego
+	url = https://github.com/Gdominguezborines/Libreria_juego.git
