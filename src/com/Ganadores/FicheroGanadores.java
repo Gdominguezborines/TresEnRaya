@@ -3,14 +3,16 @@ import java.io.*;
 
 public class FicheroGanadores {
 
+
+
  public void crearArchivoGanadores() {
 
-        File file =new File("Ganadores.txt");
+        File archivo =new File("Ganadores.txt");
 
-          if(!file.exists()){
+          if(!archivo.exists()){
                 try{
-                    file.createNewFile();
-                    System.out.println(file.getName()+" Ha sido creado");
+                    archivo.createNewFile();
+                    System.out.println(archivo.getName()+" Ha sido creado");
 
                 }catch(IOException ex){
                     //ex.printStackTrace();
@@ -21,19 +23,15 @@ public class FicheroGanadores {
 
     }
 
-       public  void escribirArchivoGanadores(){
-
-           String frase="ESto es una prueva ";
-
+       public  void escribirArchivoGanadores(String ganador){
+           //String ganador="hola";
+            int contador=0;
                try{
-                   FileWriter escritura =new FileWriter("Ganadores.txt",true);
+                   FileWriter archivo=new FileWriter("Ganadores.txt",true);
+                      contador=contador+1;
+                    archivo.write("\r\n"+"En la partida numero "+contador+" el ganador ha sido: "+ganador);
+                    archivo.close();
 
-                   for (int i=0; i<frase.length();i++ ) {
-                       System.out.println("  ");
-                           escritura.write(frase.charAt(i));
-
-                   }
-               escritura.close();
 
                }catch (IOException e){
                    System.out.println("No se a encontrado el archivo");
@@ -43,20 +41,25 @@ public class FicheroGanadores {
 
 
     public  void leerArchivoGanadores(){
-
+    String cadena;
       try {
-          FileReader file = new FileReader("Ganadores.txt");
-           int c=0;
-            while(c!=-1){
-               c= file.read();
-                char letra=(char)c;
 
-                System.out.print( letra);
-            }
-            file.close();
+          FileReader lector = new FileReader("Ganadores.txt");
+          BufferedReader lectura = new BufferedReader(lector);
 
-      }catch (IOException e){
-          System.out.println("No se a encontrado el archivo");
+          cadena =lectura.readLine();
+          while(cadena != null) {
+              System.out.println(cadena);
+              cadena = lectura.readLine();
+          }
+
+
+
+      }catch (FileNotFoundException ex) {
+          System.out.println("EROR"+ex);
+
+      }catch (IOException ex){
+          System.out.println("No se a encontrado el archivo"+ex);
       }
 
     }

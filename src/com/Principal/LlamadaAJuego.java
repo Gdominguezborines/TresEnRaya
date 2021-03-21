@@ -12,10 +12,6 @@ public class  LlamadaAJuego{
     public static void main(String[] args){
 
 
-        FicheroGanadores obx = new FicheroGanadores();
-        obx.crearArchivoGanadores();
-        obx.escribirArchivoGanadores();
-        obx.leerArchivoGanadores();
 
         Metodos juguemos=new Metodos();
         boolean correcto=false;

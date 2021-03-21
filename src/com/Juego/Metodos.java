@@ -2,6 +2,7 @@ package com.Juego;
 
 import Librerias.libreria;
 import com.Excepciones.NuestrasExcepciones;
+import com.Ganadores.FicheroGanadores;
 
 public class Metodos {
 
@@ -65,13 +66,24 @@ public class Metodos {
             //Con esto cambiamos el tuno entre jugador 1 y 2
             turno = !turno;
 
-            //Mostrar tablero
-            libreria.mostrarMatriz(tablero);
 
-            //Mostramos el ganador
-            mostrarGanador(tablero, J1, J2, vacio);
 
         }
+        //Mostrar tablero
+        libreria.mostrarMatriz(tablero);
+
+        //Mostramos el ganador
+      mostrarGanador(tablero, J1, J2, vacio);
+
+          String c=mostrarGanadortxt(tablero, J1, J2, vacio);
+
+        // String c="hoila";
+               FicheroGanadores ganador=new FicheroGanadores();
+         ganador.crearArchivoGanadores();
+        ganador.escribirArchivoGanadores(c);
+        ganador.leerArchivoGanadores();
+
+
     }
 
 
@@ -133,7 +145,7 @@ public class Metodos {
             if (simbolo != vacio) {
                 for (int j = 1; j < matriz[0].length; j++) {
                     //sino coincide ya no habra ganador en esta fila
-                    if (simbolo != matriz[i][j]) {
+                    if (simbolo != matriz[j][i]) {
                         coincidencia = false;
                     }
                 }
@@ -194,7 +206,6 @@ public class Metodos {
         if (simbolo != vacio) {
 
             libreria.ganador(simbolo, J1, J2, 1);
-
             return;
         }
         simbolo = coincidenciaColumna(matriz, vacio);
@@ -213,8 +224,40 @@ public class Metodos {
 
             return;
         }
-
+        System.out.println("Hay empate");
     }
+
+
+
+    public static String mostrarGanadortxt(char[][] matriz, char J1, char J2, char vacio) {
+
+        char simbolo = coincidenciaLinea(matriz, vacio);
+
+        if (simbolo != vacio) {
+
+            return libreria.ganadortxt(simbolo, J1, J2, 1);
+
+        }
+        simbolo = coincidenciaColumna(matriz, vacio);
+
+        if (simbolo != vacio) {
+
+            return libreria.ganadortxt(simbolo, J1, J2, 2);
+
+
+        }
+        simbolo = coincidenciaDiagonal(matriz, vacio);
+
+        if (simbolo != vacio) {
+
+            return libreria.ganadortxt(simbolo, J1, J2, 3);
+
+
+        }
+        else {
+         return libreria.ganadortxt(simbolo, J1, J2, 4);
+        }
+        }
 
 
     public static boolean finPartida(char[][] matriz, char simboloDef) {
