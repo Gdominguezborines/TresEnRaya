@@ -24,7 +24,7 @@ public class FicheroGanadores {
     }
 
        public  void escribirArchivoGanadores(String ganador){
-           //String ganador="hola";
+
 
                try{
                    FileWriter archivo=new FileWriter("Ganadores.txt",true);
