@@ -1,5 +1,5 @@
 package com.Juego;
-import java.util.InputMismatchException;
+
 import Librerias.libreria;
 import com.Excepciones.NuestrasExcepciones;
 import com.Ganadores.FicheroGanadores;
@@ -12,7 +12,7 @@ public class Metodos {
 
 
         Scanner entrada = new Scanner(System.in);
-        boolean a=false;
+
 
 
             String[] botones = {"Jugar = 1", "Mostrar Ganadores = 2", "Salir = 3"};
