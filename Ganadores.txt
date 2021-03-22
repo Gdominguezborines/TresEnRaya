@@ -1,3 +1,6 @@
-Ganador jugador 1 por linea
-Ganador jugador 2 por linea
-En la partida numero 2 el ganador es Ganador jugador 1 por linea
+
+En la partida numero 1 el ganador ha sido: Jugador 1 por linea
+En la partida numero 1 el ganador ha sido: Jugador 2 por columna
+En la partida numero 1 el ganador ha sido: Jugador 1 por linea
+En la partida numero 1 el ganador ha sido: Jugador 1 por linea
+En la partida numero 1 el ganador ha sido: Jugador 2 por columna

@@ -25,11 +25,11 @@ public class FicheroGanadores {
 
        public  void escribirArchivoGanadores(String ganador){
            //String ganador="hola";
-            int contador=0;
+
                try{
                    FileWriter archivo=new FileWriter("Ganadores.txt",true);
-                      contador=contador+1;
-                    archivo.write("\r\n"+"En la partida numero "+contador+" el ganador ha sido: "+ganador);
+
+                    archivo.write("\r\n"+"El ganador ha sido: "+ganador);
                     archivo.close();
 
 

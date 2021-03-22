@@ -1,10 +1,46 @@
 package com.Juego;
-
+import java.util.InputMismatchException;
 import Librerias.libreria;
 import com.Excepciones.NuestrasExcepciones;
 import com.Ganadores.FicheroGanadores;
 
+import java.util.Scanner;
+
 public class Metodos {
+
+    public static void opciones() throws NuestrasExcepciones {
+
+
+        Scanner entrada = new Scanner(System.in);
+        boolean a=false;
+
+
+            String[] botones = {"Jugar = 1", "Mostrar Ganadores = 2", "Salir = 3"};
+            System.out.println("Elige tu opcion:"+"\n"+ botones[0]+"\n"+botones[1]+"\n"+botones[2]);
+            int ventana = entrada.nextInt();
+
+            switch (ventana){
+            case 1:
+                 jugar();
+                    break;
+            case 2:
+                FicheroGanadores gano =new FicheroGanadores();
+                System.out.println("\n ");
+                gano.leerArchivoGanadores();
+                System.out.println("\n ");
+                    opciones();
+            case 3:
+                System.out.println("\n Gracias por jugar \n");
+                    break;
+           default:
+               throw new NuestrasExcepciones("  Escribe bien la opcion");
+
+            }
+
+
+
+
+    }
 
     public static void jugar() throws NuestrasExcepciones {
 
@@ -36,8 +72,11 @@ public class Metodos {
                 libreria.mostrarMatriz(tablero);
 
                 correcto = false;
-                fila = libreria.pedirInteger("Escribe el numero de la fila");
-                columna = libreria.pedirInteger("Escribe el numero de la columna");
+
+
+                  fila = libreria.pedirInteger("Escribe el numero de la fila");
+                  columna = libreria.pedirInteger("Escribe el numero de la columna");
+
                 fila = fila - 1;
                 columna = columna - 1;
                 //validamos la posicion
@@ -47,11 +86,14 @@ public class Metodos {
 
                     if (!libreria.hayValorPosicion(tablero, fila, columna, vacio)) {
                         correcto = true;
+
                     } else {
-                        throw new NuestrasExcepciones("Esta posicion ya esta ocupada");
+                        System.out.println("Esta posicion ya esta ocupada");
+                        System.out.println(" \n");
                     }
                 } else {
-                    throw new NuestrasExcepciones("La posicion no es valida se sale del tablero");
+                    System.out.println("La posicion no es valida se sale del tablero");
+                    System.out.println(" \n");
                 }
                 //mientras no sea correcto se repetira y no saldra
 
@@ -75,14 +117,16 @@ public class Metodos {
         //Mostramos el ganador
       mostrarGanador(tablero, J1, J2, vacio);
 
-          String c=mostrarGanadortxt(tablero, J1, J2, vacio);
 
         // String c="hoila";
-               FicheroGanadores ganador=new FicheroGanadores();
-         ganador.crearArchivoGanadores();
-        ganador.escribirArchivoGanadores(c);
-        ganador.leerArchivoGanadores();
+        String c=mostrarGanadortxt(tablero, J1, J2, vacio);
 
+        FicheroGanadores ganador=new FicheroGanadores();
+        ganador.crearArchivoGanadores();
+        ganador.escribirArchivoGanadores(c);
+
+        System.out.println("\n");
+        opciones();
 
     }
 
