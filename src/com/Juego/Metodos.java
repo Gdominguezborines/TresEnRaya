@@ -14,30 +14,27 @@ public class Metodos {
         Scanner entrada = new Scanner(System.in);
 
 
+        String[] botones = {"Jugar = 1", "Mostrar Ganadores = 2", "Salir = 3"};
+        System.out.println("Elige tu opcion:" + "\n" + botones[0] + "\n" + botones[1] + "\n" + botones[2]);
+        int ventana = entrada.nextInt();
 
-            String[] botones = {"Jugar = 1", "Mostrar Ganadores = 2", "Salir = 3"};
-            System.out.println("Elige tu opcion:"+"\n"+ botones[0]+"\n"+botones[1]+"\n"+botones[2]);
-            int ventana = entrada.nextInt();
-
-            switch (ventana){
+        switch (ventana) {
             case 1:
-                 jugar();
-                    break;
+                jugar();
+                break;
             case 2:
-                FicheroGanadores gano =new FicheroGanadores();
+                FicheroGanadores gano = new FicheroGanadores();
                 System.out.println("\n ");
                 gano.leerArchivoGanadores();
                 System.out.println("\n ");
-                    opciones();
+                opciones();
             case 3:
                 System.out.println("\n Gracias por jugar \n");
-                    break;
-           default:
-               throw new NuestrasExcepciones("  Escribe bien la opcion");
+                break;
+            default:
+                throw new NuestrasExcepciones("  Escribe bien la opcion");
 
-            }
-
-
+        }
 
 
     }
@@ -57,7 +54,7 @@ public class Metodos {
         char[][] tablero = new char[3][3];
 
         // rellenamos matriz con los guiones
-           libreria.rellenarMatriz(tablero,vacio);
+        libreria.rellenarMatriz(tablero, vacio);
 
         int fila, columna;
         boolean posValida, correcto;
@@ -74,8 +71,8 @@ public class Metodos {
                 correcto = false;
 
 
-                  fila = libreria.pedirInteger("Escribe el numero de la fila");
-                  columna = libreria.pedirInteger("Escribe el numero de la columna");
+                fila = libreria.pedirInteger("Escribe el numero de la fila");
+                columna = libreria.pedirInteger("Escribe el numero de la columna");
 
                 fila = fila - 1;
                 columna = columna - 1;
@@ -109,19 +106,18 @@ public class Metodos {
             turno = !turno;
 
 
-
         }
         //Mostrar tablero
         libreria.mostrarMatriz(tablero);
 
         //Mostramos el ganador
-      mostrarGanador(tablero, J1, J2, vacio);
+        mostrarGanador(tablero, J1, J2, vacio);
 
 
         // String c="hoila";
-        String c=mostrarGanadortxt(tablero, J1, J2, vacio);
+        String c = mostrarGanadortxt(tablero, J1, J2, vacio);
 
-        FicheroGanadores ganador=new FicheroGanadores();
+        FicheroGanadores ganador = new FicheroGanadores();
         ganador.crearArchivoGanadores();
         ganador.escribirArchivoGanadores(c);
 
@@ -129,8 +125,6 @@ public class Metodos {
         opciones();
 
     }
-
-
 
 
     public static boolean matrizLlena(char[][] matriz, char simboloDef) {
@@ -264,13 +258,12 @@ public class Metodos {
 
         if (simbolo != vacio) {
 
-             libreria.ganador(simbolo, J1, J2, 3);
+            libreria.ganador(simbolo, J1, J2, 3);
 
             return;
         }
         System.out.println("Hay empate");
     }
-
 
 
     public static String mostrarGanadortxt(char[][] matriz, char J1, char J2, char vacio) {
@@ -297,11 +290,10 @@ public class Metodos {
             return libreria.ganadortxt(simbolo, J1, J2, 3);
 
 
+        } else {
+            return libreria.ganadortxt(simbolo, J1, J2, 4);
         }
-        else {
-         return libreria.ganadortxt(simbolo, J1, J2, 4);
-        }
-        }
+    }
 
 
     public static boolean finPartida(char[][] matriz, char simboloDef) {
