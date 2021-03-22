@@ -52,7 +52,7 @@ public class Metodos {
 
         //creamos matriz tablero donde vamos a jugar de 3 filas y 3 columnas
         char[][] tablero = new char[3][3];
-
+        System.out.flush();
         // rellenamos matriz con los guiones
         libreria.rellenarMatriz(tablero, vacio);
 
@@ -69,7 +69,7 @@ public class Metodos {
                 libreria.mostrarMatriz(tablero);
 
                 correcto = false;
-
+                System.out.flush();
 
                 fila = libreria.pedirInteger("Escribe el numero de la fila");
                 columna = libreria.pedirInteger("Escribe el numero de la columna");
