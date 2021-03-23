@@ -1,0 +1,5 @@
+
+El ganador ha sido: Jugador 1 por linea
+El ganador ha sido: Jugador 1 por columna
+El ganador ha sido: Jugador 1 por diagonal
+El ganador ha sido: Hay un empate
